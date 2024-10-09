@@ -25,7 +25,7 @@ jobs:
     uses: ./.github/workflows/wrappers.yml
   deploy-baas:
     name: Deploy BaaS
-    if: always() && !cancelled() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled')
+    if: ${{ !always() }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
